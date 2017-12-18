@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+div {
+  width: 100%;
+  background: green;
+  font: blue;
+}
+

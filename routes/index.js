@@ -1,20 +1,35 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
-var Mustache = require('mustache');
+var mustache = require('mustache');
 var fs = require('fs');
+var path = require('path');
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //var output = mustache.render();
-  var view = {
-    name: "Joe",
-    content: "Moose are majestic"
+  var data = {
+    title: "Title",
+    thumbnails: [
+      {
+        Name: "Events"
+      },
+      {
+        Name: "Check-in"
+      },
+      {
+        Name: "Lodge Locator"
+      },
+      {
+        Name: "Profile"
+      }
+    ]
   };
   
 
-  var file = fs.readFile("./views/index.mustache", "utf-8", function(err,content) {
+  var file = fs.readFile("./src/html/homepage.html", "utf-8", function(err,content) {
     if(err) {
       console.log("Error: " + err);
       res.render('index', { title: 'Express' });
@@ -22,8 +37,8 @@ router.get('/', function(req, res, next) {
       return;
     }
     
-    console.log(content);
-    var output = Mustache.render(content, view);
+    console.log("");
+    var output = mustache.render(content, data);
     //res.render('index', { title: 'Express' });
     //res.send(output, { title: 'Mustache' });
     res.send(output);
