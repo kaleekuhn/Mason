@@ -19,7 +19,7 @@ var db= mysql.createConnection({
  
 db.connect(function(error) {
   if(error)
-  console.log('error');
+  console.log('error:(');
   else 
   console.log('connected');
 });
@@ -94,7 +94,7 @@ router.get('/', function(req, res, next) {
   };
   
 
-  var file = fs.readFile("./src/html/index.mustache", "utf-8", function(err,content) {
+  var file = fs.readFile("./src/html/homepage.html", "utf-8", function(err,content) {
     if(err) {
       console.log("Error: " + err);
       res.render('index', { title: 'Express' });
@@ -103,7 +103,7 @@ router.get('/', function(req, res, next) {
     }
     
     console.log(content);
-    var output = Mustache.render(content, view);
+    var output = Mustache.render(content, data);
     //res.render('index', { title: 'Express' });
     //res.send(output, { title: 'Mustache' });
     res.send(output);
