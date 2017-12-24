@@ -26,7 +26,7 @@ db.connect(function(error) {
 
 router.get('/name', function(req,res){
  
-  db.query("INSERT INTO temp SET NAME='kalee', PASSWORD='5846' ", function(error, rows, fields) {
+  db.query("INSERT INTO temp SET NAME='kalee', PASSWORD='1234' ", function(error, rows, fields) {
   if(error)
   console.log('error selecting from data base');
   else 
