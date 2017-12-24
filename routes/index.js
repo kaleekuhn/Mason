@@ -49,6 +49,7 @@ router.get('/table', function(req,res){
     if (err) throw err;
     console.log("Table created");
   });
+  res.render("Added!");
 });
 
 router.get('/deltable', function(req,res){
@@ -86,7 +87,7 @@ router.get('/', function(req, res, next) {
       }
     ]
   }
-  
+
   var view = {
     /*change these to get from table*/
     name: "Joe",
@@ -104,6 +105,73 @@ router.get('/', function(req, res, next) {
     
     console.log(content);
     var output = Mustache.render(content, data);
+    //res.render('index', { title: 'Express' });
+    //res.send(output, { title: 'Mustache' });
+    res.send(output);
+  });
+
+  // var output = Mustache.render(file, view);
+  // //res.render('index', { title: 'Express' });
+  // //res.send(output, { title: 'Mustache' });
+  // res.send(output);
+
+});
+
+/* GET home page. */
+router.get('/events', function(req, res, next) {
+  //var output = mustache.render();
+
+var event = {
+  title: "Event Planner!",
+  events: [
+    {
+      Name: "Runathon",
+      Location: "Dallas",
+      Date: "1/1/18"
+    },
+    {
+      Name: "Moose Hunt",
+      Location: "Arkansas",
+      Date: "2/6/17"
+    },
+    {
+      Name: "Galaga",
+      Location: "Cali",
+      Date: "11/21/18"
+    },
+  ]
+}
+
+var moose = {};
+moose.title = "Event Planner!";
+moose.events = [];
+
+temp = {}
+
+temp.Name = "Fun Run";
+temp.Loc = "Dallas";
+temp.Name = "Wataburger";
+moose.events.push(temp);
+
+console.log(moose);
+
+  var view = {
+    /*change these to get from table*/
+    name: "Joe",
+    content: "Moose are majestic"
+  };
+  
+
+  var file = fs.readFile("./src/html/events.html", "utf-8", function(err,content) {
+    if(err) {
+      console.log("Error: " + err);
+      res.render('index', { title: 'Express' });
+
+      return;
+    }
+    
+    //console.log(content);
+    var output = Mustache.render(content, event);
     //res.render('index', { title: 'Express' });
     //res.send(output, { title: 'Mustache' });
     res.send(output);
