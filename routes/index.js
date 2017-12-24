@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
   //var output = mustache.render();
   var data = {
     title: "Title",
+    content: "Once upon a time there was a lone moose, who was romaing the wild.",
     thumbnails: [
       {
         Name: "Events"
