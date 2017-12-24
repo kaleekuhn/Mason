@@ -3,17 +3,22 @@
 <body>
 
 <h1>Hello {{title}} </h1>
-<div class="homepageContainer">
-    {{#thumbnails}}
-    <div class="thumbnailWrapper">
-        <div class="thumbnail">
-            {{Name}}
-        </div>
-    </div>  
-    {{/thumbnails}}
+<div class="container">
+    <div class="homepageContainer">
+        {{#thumbnails}}
+        <div class="thumbnailWrapper">
+            <div class="thumbnail" id={{Name}}>
+                {{Name}}
+            </div>
+        </div>  
+        {{/thumbnails}}
+    </div>
 </div>
 <p>Content is: {{content}}</p>
+
 
 </body>
 </html>
 <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
