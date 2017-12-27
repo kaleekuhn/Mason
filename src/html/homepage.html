@@ -4,10 +4,10 @@
 
 <h1>Hello {{title}} </h1>
 <div class="container">
-    <div class="homepageContainer">
+    <div class="homepageContainer row no-gutters">
         {{#thumbnails}}
-        <div class="thumbnailWrapper">
-            <div class="thumbnail" id={{Name}}>
+        <div class="thumbnailWrapper col row no-gutters">
+            <div class="thumbnail col align-self-center" id={{Name}}>
                 {{Name}}
             </div>
         </div>  
@@ -16,9 +16,20 @@
 </div>
 <p>Content is: {{content}}</p>
 
+<div class="row">
+    <div class="col-6">
+        First Col
+    </div>
+    <div class="col-6">
+        Second Col
+    </div>
+</div>
+
 
 </body>
 </html>
 <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
