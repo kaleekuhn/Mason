@@ -8,6 +8,7 @@ var gulp = require('gulp');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var events = require('./routes/events');
 // var css = require('./src/css/style.css');
 
 var app = express();

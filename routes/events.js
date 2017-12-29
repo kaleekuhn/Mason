@@ -65,62 +65,6 @@ router.get('/deltable', function(req,res){
 
 
 
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  //var output = mustache.render();
-  var data = {
-    title: "Title",
-    content: "Once upon a time there was a lone moose, who was romaing the wild.",
-    thumbnails: [
-      {
-        Name: "Events",
-        Reference: "/events"
-      },
-      {
-        Name: "Check-in",
-        Reference: "/events"
-      },
-      {
-        Name: "Lodge Locator",
-        Reference: "/events"
-      },
-      {
-        Name: "Profile",
-        Reference: "/events"
-      }
-    ]
-  }
-
-  var view = {
-    /*change these to get from table*/
-    name: "Joe",
-    content: "Moose are majestic"
-  };
-  
-
-  var file = fs.readFile("./src/html/homepage.html", "utf-8", function(err,content) {
-    if(err) {
-      console.log("Error: " + err);
-      res.render('index', { title: 'Express' });
-
-      return;
-    }
-    
-    console.log(content);
-    var output = Mustache.render(content, data);
-    //res.render('index', { title: 'Express' });
-    //res.send(output, { title: 'Mustache' });
-    res.send(output);
-  });
-
-  // var output = Mustache.render(file, view);
-  // //res.render('index', { title: 'Express' });
-  // //res.send(output, { title: 'Mustache' });
-  // res.send(output);
-
-});
-
 /* GET home page. */
 router.get('/events', function(req, res, next) {
   //var output = mustache.render();
