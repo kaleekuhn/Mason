@@ -66,6 +66,8 @@ router.get('/deltable', function(req,res){
 
 
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //var output = mustache.render();
@@ -150,15 +152,32 @@ router.get('/events', function(req, res, next) {
   moose.title = "Event Planner!";
   moose.events = [];
 
-  temp = {}
+  for(var x=1;x<4;x++)
+{
+ 
+  sql = "SELECT * FROM events where Number="+x;
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+     temp = {}
+    temp.Name=result[0].Name;
+    temp.Location=result[0].Location;
+    temp.Date=result[0].Date;
+    moose.events.push(temp);
+    
+  })
+  
+ 
+  
+}
 
-  temp.Name = "Fun Run";
-  temp.Loc = "Dallas";
-  temp.Name = "Wataburger";
+
+ /* temp.Date= "11/21/18";
+ 
   moose.events.push(temp);
-
+  temp.Date="12/10/10";
+  moose.events.push(temp);
   console.log(moose);
-
+*/
     var view = {
       /*change these to get from table*/
       name: "Joe",
@@ -175,7 +194,7 @@ router.get('/events', function(req, res, next) {
       }
       
       //console.log(content);
-      var output = Mustache.render(content, event);
+      var output = Mustache.render(content, moose);
       //res.render('index', { title: 'Express' });
       //res.send(output, { title: 'Mustache' });
       res.send(output);
