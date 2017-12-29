@@ -8,7 +8,10 @@ var gulp = require('gulp');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var events = require('./routes/events');
+// var events = require('./routes/events');
+// var checkIn = require('./routes/checkIn');
+// var lodgeLocator = require('./routes/lodgeLocator');
+// var profile = require('./routes/profile');
 // var css = require('./src/css/style.css');
 
 var app = express();

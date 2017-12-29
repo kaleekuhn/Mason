@@ -79,15 +79,15 @@ router.get('/', function(req, res, next) {
       },
       {
         Name: "Check-in",
-        Reference: "/events"
+        Reference: "/checkIn"
       },
       {
         Name: "Lodge Locator",
-        Reference: "/events"
+        Reference: "/lodgeLocator"
       },
       {
         Name: "Profile",
-        Reference: "/events"
+        Reference: "/profile"
       }
     ]
   }
@@ -129,7 +129,7 @@ router.get('/events', function(req, res, next) {
     title: "Event Planner!",
     events: [
       {
-        Name: "Runathon",
+        Name: "Marathon",
         Location: "Dallas",
         Date: "1/1/18"
       },
@@ -186,6 +186,67 @@ router.get('/events', function(req, res, next) {
     // //res.send(output, { title: 'Mustache' });
     // res.send(output);
 
+});
+
+
+router.get('/checkIn', function(req, res, next) {
+  //var output = mustache.render();
+
+    var data = {
+        title: "checkIn",
+    }
+
+    var file = fs.readFile("./src/html/checkIn.html", "utf-8", function(err,content) {
+        if(err) {
+            console.log("Error: " + err);
+            res.render('index', { title: 'Express' });
+
+            return;
+        }
+        
+        var output = Mustache.render(content, data);
+        res.send(output);
+    });
+});
+
+router.get('/lodgeLocator', function(req, res, next) {
+  //var output = mustache.render();
+
+    var data = {
+        title: "Lodge Locator",
+    }
+
+    var file = fs.readFile("./src/html/lodgeLocator.html", "utf-8", function(err,content) {
+        if(err) {
+            console.log("Error: " + err);
+            res.render('index', { title: 'Express' });
+
+            return;
+        }
+        
+        var output = Mustache.render(content, data);
+        res.send(output);
+    });
+});
+
+router.get('/profile', function(req, res, next) {
+  //var output = mustache.render();
+
+    var data = {
+        title: "Profile",
+    }
+
+    var file = fs.readFile("./src/html/profile.html", "utf-8", function(err,content) {
+        if(err) {
+            console.log("Error: " + err);
+            res.render('index', { title: 'Express' });
+
+            return;
+        }
+        
+        var output = Mustache.render(content, data);
+        res.send(output);
+    });
 });
 
 module.exports = router;

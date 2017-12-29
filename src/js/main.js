@@ -6,7 +6,11 @@
 
 $(document).ready(function(){
     $('.homepageContainer').css({'height':(($(window).height())-150)+'px'});
+    console.log("Initial Resize: " + (($(window).height())-150));
+
 });
 $(window).resize(function(){
     $('.homepageContainer').css({'height':(($(window).height())-150)+'px'});
+    console.log("Subsequent resize: " + (($(window).height())-150));
 });
+

@@ -6,12 +6,11 @@
 <div class="container">
     <div class="homepageContainer row no-gutters">
         {{#thumbnails}}
-        <div class="thumbnailWrapper col row no-gutters">
+        <a class="thumbnailWrapper col row no-gutters" href="{{Reference}}">
             <div class="thumbnail col align-self-center" id="{{Name}}" href="{{Reference}}">
-                <a href="{{Reference}}"></a>
                 {{Name}}
             </div>
-        </div>  
+        </a>
         {{/thumbnails}}
     </div>
 </div>
