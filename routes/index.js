@@ -152,7 +152,7 @@ router.get('/events', function(req, res, next) {
   moose.title = "Event Planner!";
   moose.events = [];
 
-  for(var x=1;x<4;x++)
+  /*for(var x=1;x<4;x++)
 {
  
   sql = "SELECT * FROM events where Number="+x;
@@ -164,11 +164,23 @@ router.get('/events', function(req, res, next) {
     temp.Date=result[0].Date;
     moose.events.push(temp);
     
-  })
-  
+  })  
+}*/
+
+
  
-  
-}
+  sql = "SELECT * FROM events";
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+    for(var x=0;x<result.length;x++)
+    {
+     temp = {}
+    temp.Name=result[x].Name;
+    temp.Location=result[x].Location;
+    temp.Date=result[x].Date;
+    moose.events.push(temp);
+    }
+  })  
 
 
  /* temp.Date= "11/21/18";
